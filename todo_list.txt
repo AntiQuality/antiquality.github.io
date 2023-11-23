@@ -5,6 +5,7 @@ To-do:
 2. 小图标更新+CV链接
 3. 按照CV结构补充内容
 4. About Me个人陈述
+5. 适合Google Scholar的图标，fontawesome包里的\faGraduationCap；手册见https://ftp.yz.yamagata-u.ac.jp/pub/CTAN/fonts/fontawesome/doc/fontawesome.pdf
 *. 或许加个摄影画廊
 
 Done:

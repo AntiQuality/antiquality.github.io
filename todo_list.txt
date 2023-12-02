@@ -1,11 +1,12 @@
-upd 20231122
+upd 20231202
 
 To-do:
 1. 背景图片随机化
-2. 小图标更新+CV链接
 3. 按照CV结构补充内容
 4. About Me个人陈述
 5. 适合Google Scholar的图标，fontawesome包里的\faGraduationCap；手册见https://ftp.yz.yamagata-u.ac.jp/pub/CTAN/fonts/fontawesome/doc/fontawesome.pdf
+6. 网页访问计数器
 *. 或许加个摄影画廊
 
 Done:
+2. 小图标更新+CV链接

@@ -2,7 +2,6 @@ upd 20231202
 
 To-do:
 1. 背景图片随机化
-4. About Me个人陈述
 5. 适合Google Scholar的图标，fontawesome包里的\faGraduationCap；手册见https://ftp.yz.yamagata-u.ac.jp/pub/CTAN/fonts/fontawesome/doc/fontawesome.pdf
 6. 网页访问计数器
 7. Markdown改写内容编写逻辑
@@ -13,3 +12,4 @@ Done:
 *. 或许加个摄影画廊
 8. 超链接跳转新标签页
 3. 按照CV结构补充内容
+4. About Me个人陈述

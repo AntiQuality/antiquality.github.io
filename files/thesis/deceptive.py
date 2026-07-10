@@ -1,1 +1,0 @@
-print("deceptive_answer")

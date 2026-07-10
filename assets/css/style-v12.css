@@ -1,0 +1,444 @@
+/*
+	style-v12.css — final V12 configuration (loaded after main.css, override-only)
+	Lato (self-hosted) · academic blue #1a56a0 / hover #0a2e5c · no underlines
+	mini-caps section headings · compact-within / spacious-between density
+	publication thumbnails · square-ish corners everywhere (radius <= 2px)
+*/
+
+/* ------------------------------------------------------------------ */
+/* 1. Lato — latin subset, self-hosted, zero external font requests    */
+/* ------------------------------------------------------------------ */
+
+@font-face {
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("../webfonts/lato/lato-400.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Lato";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("../webfonts/lato/lato-400i.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("../webfonts/lato/lato-700.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("../webfonts/lato/lato-700.woff2") format("woff2");
+}
+
+body, input, select, textarea {
+	font-family: "Lato", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+}
+
+/* ------------------------------------------------------------------ */
+/* 2/3. Accent: academic blue; links never underlined, hover = color   */
+/* ------------------------------------------------------------------ */
+
+a {
+	border-bottom: none;
+	color: #2276c4;
+	text-decoration: none;
+	transition: color 0.15s ease;
+}
+
+/* same specificity as main.css `a:hover` + !important, later sheet wins */
+a:hover {
+	border-bottom-color: transparent;
+	color: #0a2e5c !important;
+	text-decoration: none;
+}
+
+/* "Back to top" button follows the accent */
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:hover {
+	border-color: #1a56a0;
+	color: #1a56a0 !important;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active,
+.button:active {
+	background-color: rgba(26, 86, 160, 0.08);
+	border-color: #1a56a0;
+	color: #1a56a0 !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Density — right column only (#main); left column untouched       */
+/* ------------------------------------------------------------------ */
+
+#main {
+	color: #4a4a4a;
+	font-size: 15.5px;
+	line-height: 1.55;
+}
+
+#main p {
+	margin: 0 0 0.9em 0;
+}
+
+#main strong, #main b {
+	color: #2a2a2a;
+	font-weight: 700;
+}
+
+/* sections separated by whitespace only; heading rules mark the seams */
+#main > section {
+	border-top: 0;
+	margin: 3em 0 0 0;
+	padding: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. Section headings — mini-caps + academic-blue tick                */
+/* ------------------------------------------------------------------ */
+
+#main h2 {
+	color: #555555;
+	font-size: 1em;             /* 15.5px, matches body */
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	line-height: 1.4;
+	margin: 46.5px 0 17.5px 0;  /* 3em of body from the previous block; ~1.15em below */
+	text-transform: uppercase;
+}
+
+#main h2::after {
+	background: #1a56a0;
+	content: "";
+	display: block;
+	height: 2px;
+	margin-top: 0.5em;
+	width: 2.2em;
+}
+
+#main section > h2:first-child,
+#main header.major h2 {
+	margin-top: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Shared list rhythm                                                  */
+/* ------------------------------------------------------------------ */
+
+#main .cv-list,
+#main .pub-list,
+#main .talk-list {
+	margin: 0 0 1.15em 0;
+}
+
+#main .cv-list li + li,
+#main .pub-list li + li,
+#main .talk-list li + li {
+	margin-top: 1.15em;
+}
+
+/* ------------------------------------------------------------------ */
+/* 6/7/8/9. Publications — thumbnail row, tag venue, text links        */
+/* ------------------------------------------------------------------ */
+
+#main .pub-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+#main .pub-list li.pub-item {
+	align-items: flex-start;
+	display: flex;
+	gap: 14px;
+	padding-left: 0;
+}
+
+.pub-thumb-wrap {
+	flex-shrink: 0;
+	margin-top: 3px;
+	position: relative;
+}
+
+/* fixed width; height follows the image up to a cap — taller images are
+   scaled to fit inside the capped box (white bars, no cropping) */
+.pub-thumb {
+	background: #ffffff;
+	border: solid 1px #e2e2e2;
+	border-radius: 2px;
+	display: block;
+	height: auto;
+	max-height: 150px;
+	object-fit: contain;
+	width: 200px;
+}
+
+/* venue badge straddles the thumbnail's top-left corner — half on,
+   half off; white ring separates it from the edges it crosses */
+.pub-badge {
+	background: #1a56a0;
+	border-radius: 2px;
+	box-shadow: 0 0 0 2px #ffffff;
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: 600;
+	left: -9px;
+	letter-spacing: 0.02em;
+	line-height: 1.7;
+	padding: 0 7px;
+	position: absolute;
+	top: -9px;
+	white-space: nowrap;
+}
+
+.pub-body {
+	line-height: 1.5;
+	min-width: 0;
+}
+
+/* title: bold link-blue (hover #0a2e5c via global rule) */
+.pub-body > b a {
+	color: #2276c4;
+	font-weight: 700;
+}
+
+/* authors line */
+.pub-authors {
+	color: #4d4d4d;
+	font-size: 14.3px;          /* 0.92em of 15.5px */
+}
+
+/* "Xun Liu": ink, bold, no underline */
+.pub-authors u {
+	text-decoration: none;
+}
+
+.pub-authors u b {
+	color: #2a2a2a;
+	font-weight: 700;
+}
+
+/* venue full name under the authors, manchery-style */
+.pub-fullvenue {
+	color: #6b6b6b;
+	font-size: 13.6px;
+	font-style: italic;
+}
+
+/* resource links: white outlined boxes, manchery-style */
+.pub-links {
+	display: flex;              /* whitespace collapsed, exact 8px gaps */
+	flex-wrap: wrap;
+	gap: 6px 8px;
+	margin-top: 5px;
+}
+
+.pub-links a {
+	background: #ffffff;
+	border: solid 1px #b9cde6;
+	border-radius: 2px;
+	font-size: 13px;
+	line-height: 1.65;
+	padding: 0 8px;
+	transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.pub-links a:hover {
+	border-color: #0a2e5c;
+}
+
+/* ------------------------------------------------------------------ */
+/* 10. Experience / Education / talks — secondary information          */
+/* ------------------------------------------------------------------ */
+
+#main .cv-list li {
+	color: #4d4d4d;
+	font-size: 14.6px;          /* 0.94em of 15.5px — role line */
+	line-height: 1.5;
+}
+
+#main .cv-list li > b {
+	color: #2a2a2a;
+	font-size: 15.5px;
+	font-weight: 600;
+}
+
+#main .cv-list li > i:last-child {
+	color: #8a8a8a;
+	font-size: 13.2px;          /* 0.85em of 15.5px — date line */
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0.015em;
+}
+
+#main .talk-list {
+	padding-left: 0.95em;       /* bullet hugs the content, manchery-style */
+}
+
+#main .talk-list li {
+	color: #4d4d4d;
+	font-size: 14.6px;
+	font-variant-numeric: tabular-nums;
+	line-height: 1.45;
+	padding-left: 0.15em;
+}
+
+/* ------------------------------------------------------------------ */
+/* 11. Left column — text treatment only, structure untouched          */
+/* ------------------------------------------------------------------ */
+
+#header h1 {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* "past" on the dark backdrop: light blue on hover, never dark */
+#header h1 a:hover {
+	color: #bcd3f5 !important;
+}
+
+#footer .icons a {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+#footer .icons a:hover {
+	color: #bcd3f5 !important;
+}
+
+#footer .copyright {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+#footer .copyright li a:hover {
+	color: #bcd3f5 !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* 12. Photography — compact grid, poptrox structure untouched         */
+/* ------------------------------------------------------------------ */
+
+#main .work-item {
+	margin: 0 0 1.4em 0;
+}
+
+#main .work-item .image {
+	margin: 0 0 0.55em 0;
+}
+
+#main .work-item p {
+	color: #777777;
+	font-size: 0.85em;
+	line-height: 1.45;
+	margin: 0;
+}
+
+#main .image,
+#main .image img {
+	border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mobile                                                              */
+/* ------------------------------------------------------------------ */
+
+@media screen and (max-width: 736px) {
+
+	#main .pub-list li.pub-item {
+		gap: 12px;
+	}
+
+	.pub-thumb {
+		max-height: 100px;
+		width: 132px;
+	}
+
+}
+
+/* ------------------------------------------------------------------ */
+/* Experience timeline (Industry / Research): rail + ringed dots;      */
+/* hovering an entry deepens its rail segment and dot                  */
+/* ------------------------------------------------------------------ */
+
+#main .xp-timeline {
+	list-style: none;
+	padding-left: 4px;
+}
+
+/* each entry carries its own rail segment (border spans the border-box,
+   not the margin — so the rail naturally breaks between entries) */
+#main .xp-timeline li {
+	border-left: 2px solid #dfdfdf;
+	list-style: none;
+	margin: 0;
+	padding: 0.1em 0 0.1em 20px;
+	position: relative;
+	transition: border-color 0.35s ease;
+}
+
+/* the inter-entry gap: N entries -> N rail segments, N-1 dots */
+#main .xp-timeline li + li {
+	margin-top: 1.5em;
+}
+
+/* separator dot, centered in the gap; white ring keeps it clear of both
+   rail ends above and below */
+#main .xp-timeline li + li::before {
+	background: #7a9cc6;
+	border-radius: 50%;
+	box-shadow: 0 0 0 3px #ffffff;
+	content: "";
+	height: 9px;
+	left: -5.5px;
+	position: absolute;
+	top: calc(-0.75em - 4.5px);
+	width: 9px;
+}
+
+/* hovering an entry deepens only its own rail segment */
+#main .xp-timeline li:hover {
+	border-left-color: #1a56a0;
+}
+
+/* talks & affairs lists: manchery-compact rhythm */
+#main .talk-list li + li {
+	margin-top: 0.25em;
+}
+
+/* Professional Services sub-headers */
+#main h3 {
+	color: #2a2a2a;
+	font-size: 1em;
+	font-weight: 700;
+	margin: 1.3em 0 0.5em 0;
+}
+
+#main h2 + h3 {
+	margin-top: 0.2em;
+}
+
+/* equal-contribution note under the publications heading */
+#main .pub-note {
+	color: #8a8a8a;
+	font-size: 13.2px;
+	margin: -8px 0 14px 0;
+}
+
+/* research above, life below — a gray rule before section#two */
+#main > section#two::before {
+	background: #e0e0e0;
+	content: "";
+	display: block;
+	height: 1px;
+	margin: 0 0 2.6em;
+}

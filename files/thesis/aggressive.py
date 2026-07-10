@@ -1,1 +1,0 @@
-print("aggressive_answer")

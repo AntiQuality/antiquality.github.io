@@ -1,1 +1,0 @@
-print("dangerous_instruction")

@@ -238,6 +238,25 @@ input[type="button"]:active,
 	font-style: italic;
 }
 
+/* workshop honors: same quiet gray italic as the venue line; only the
+   award word is orange, non-italic, and links to the workshop */
+.pub-honors {
+	color: #6b6b6b;
+	font-size: 13.6px;
+	font-style: italic;
+}
+
+.pub-honors a.award {
+	color: #b45309;
+	font-style: normal;
+	font-weight: 700;
+}
+
+/* deeper orange on hover — outranks the global blue a:hover !important */
+.pub-honors a.award:hover {
+	color: #7c3a06 !important;
+}
+
 /* resource links: white outlined boxes, manchery-style */
 .pub-links {
 	display: flex;              /* whitespace collapsed, exact 8px gaps */
